@@ -1,0 +1,57 @@
+Resources:
+  ExampleLambdaRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: 'example_${self:service.name}_${self:custom.stage}_role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service:
+                - 'lambda.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: '${self:service.name}_${self:custom.stage}_example_logs_policy'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: 'Allow'
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - 'Fn::Join':
+                      - ':'
+                      - - 'arn:aws-cn:logs'
+                        - Ref: 'AWS::Region'
+                        - Ref: 'AWS::AccountId'
+                        - 'log-group:/aws/lambda/*:*:*'
+        - PolicyName: '${self:service.name}_${self:custom.stage}_dynamodb_example_table_policy'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: 'Allow'
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                  - dynamodb:UpdateItem
+                  - dynamodb:DeleteItem
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                Resource:
+                  - arn:aws-cn:dynamodb:*:*:table/${self:custom.appName}-${self:custom.stage}-example
+                  - arn:aws-cn:dynamodb:*:*:table/${self:custom.appName}-${self:custom.stage}-example/*
+        - PolicyName: '${self:service.name}_${self:custom.stage}_s3_example'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: 'Allow'
+                Action:
+                  - 's3:PutObject'
+                  - 's3:PutObjectAcl'
+                Resource:
+                  - arn:aws-cn:s3:::example
+                  - arn:aws-cn:s3:::example/*

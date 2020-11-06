@@ -1,0 +1,32 @@
+#### EXAMPLES ROUTES ####
+update_example:
+  handler: src/handler/example/index.updateExample
+  role: ExampleLambdaRole
+  events:
+    - httpApi:
+        method: put
+        path: /example
+
+delete_example:
+  handler: src/handler/example/index.deleteExample
+  role: ExampleLambdaRole
+  events:
+    - httpApi:
+        method: delete
+        path: /example/{id}
+
+get_example:
+  handler: src/handler/example/index.getExample
+  role: ExampleLambdaRole
+  events:
+    - httpApi:
+        method: get
+        path: /example/{id}
+
+create_example:
+  handler: src/handler/example/index.createExample
+  role: ExampleLambdaRole
+  events:
+    - httpApi:
+        method: post
+        path: /example

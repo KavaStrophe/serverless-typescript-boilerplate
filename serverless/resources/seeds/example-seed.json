@@ -1,0 +1,22 @@
+[{
+    "id": "1",
+    "name": "Example1",
+    "updatedAt": 0,
+    "createdAt": 0,
+    "status": "ACTIVE"
+  },
+  {
+    "id": "2",
+    "name": "Example2",
+    "updatedAt": 0,
+    "createdAt": 0,
+    "status": "ACTIVE"
+  },
+  {
+    "id": "3",
+    "name": "Example3",
+    "updatedAt": 0,
+    "createdAt": 0,
+    "status": "REMOVED"
+  }
+]
