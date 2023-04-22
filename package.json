@@ -33,7 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",
     "aws-lambda-test-utils": "^1.3.0",
-    "aws-sdk": "^2.742.0",
+    "aws-sdk": "^2.1363.0",
     "babel-loader": "^8.1.0",
     "cache-loader": "^4.1.0",
     "chai": "^4.2.0",
