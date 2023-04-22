@@ -51,7 +51,7 @@
     "lambda-tester": "^4.0.1",
     "mocha": "^8.1.1",
     "prettier": "^2.0.5",
-    "serverless": "^1.80.0",
+    "serverless": "^3.30.1",
     "serverless-domain-manager": "^4.2.0",
     "serverless-dynamodb-local": "^0.2.39",
     "serverless-offline": "^6.7.0",
